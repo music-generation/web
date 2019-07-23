@@ -1,0 +1,48 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$green1: #295b16;
+$green2: #408d27;
+$green3: #5ec139;
+$green4: #76f94c;
+
+.segment {
+  height: 100%;
+}
+
+.main-header {
+  font-size: 4em !important;
+  margin-top: 10% !important;
+}
+
+.samples-text {
+  margin-top: 10% !important;
+}
+
+.bottom { 
+  bottom: 2%;
+  position: absolute;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.player {
+  width: 100%;
+  padding-top: 100%;
+  border-style: solid;
+  border-width: 1px;
+  &.first {
+    border-color: $green4;
+  }
+  &.second {
+    border-color: $green3;
+  }
+  &.third {
+    border-color: $green2;
+  }
+  &.fourth {
+    border-color: $green1;
+  }
+}
