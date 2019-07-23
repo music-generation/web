@@ -12,22 +12,26 @@
     <div class="ui grid">
       <div class="four wide column">
         <div class="player first">
-          
+          <span class="helper"></span>
+          <i href="#" class="huge inverted purple play link icon play-icon"></i>
         </div>
       </div>
       <div class="four wide column">
         <div class="player second">
-          
+          <span class="helper"></span>
+          <i href="#" class="huge inverted yellow play link icon play-icon"></i>
         </div>
       </div>
       <div class="four wide column">
         <div class="player third">
-          
+          <span class="helper"></span>
+          <i href="#" class="huge inverted green play link icon play-icon"></i>
         </div>
       </div>
       <div class="four wide column">
         <div class="player fourth">
-          
+          <span class="helper"></span>
+          <i href="#" class="huge inverted teal play link icon play-icon"></i>
         </div>
       </div>
     </div>
@@ -37,3 +41,15 @@
     <p><i class="angle down icon"></i> Scroll down to try out the demo! <i class="angle down icon"></i></p>
   </h1>
 </div>
+
+<script>
+  $(document).ready(function() {
+    let controls = Array.from(document.getElementsByClassName('play-icon'))
+    controls.forEach((button) => {
+      button.addEventListener('click', (btn) => {
+        button.classList.toggle('pause')
+        button.classList.toggle('play')
+      })
+    })  
+  })  
+</script>
