@@ -1,11 +1,24 @@
-$(document).ready(function() {
-  let players = Array.from(document.getElementsByClassName('player'))
+let Player = new MidiPlayer.Player()
 
-  players.forEach((player, index) => {
-    player.addEventListener('click', function() {
-      play(`sample${index}.mid`)
+$(document).ready(function() {
+  let playerDivs = Array.from(document.getElementsByClassName('player'))
+
+  playerDivs.forEach((playerDiv, index) => {
+    playerDiv.addEventListener('click', () => {
+      Player.stop()
+      if (!playerDiv.classList.contains('playing')) {
+        Player.stop()
+        play(`sample${index}.mid`)
+        playerDivs.forEach((p) => {
+          if (p.classList.contains('playing') && playerDiv !== p) {
+            p.classList.remove('playing')
+          }
+        })
+      }
+      playerDiv.classList.toggle('playing')
     })
   })
+
 })
 
 async function fetchMidiFile(fileName) {
@@ -20,15 +33,16 @@ function play(songName) {
     file = f
     let reader = new FileReader()
 
-    Soundfont.instrument(ac, 'acoustic_grand_piano').then((instrument) => {
+    Soundfont.instrument(ac, 'clavinet').then((instrument) => {
       reader.readAsArrayBuffer(file)
       reader.addEventListener('load', () => {
-        Player = new MidiPlayer.Player((event) => {
+        let localPlayer = new MidiPlayer.Player((event) => {
           instrument.play(event.noteName, ac.currentTime, { gain: event.velocity / 100 })
         })
 
-        Player.loadArrayBuffer(reader.result)
-        Player.play()
+        localPlayer.loadArrayBuffer(reader.result)
+        Player = localPlayer.play()
+        console.log(Player)
       })
     })
   })

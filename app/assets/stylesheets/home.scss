@@ -41,6 +41,7 @@ $font-family: 'Roboto-Mono';
   padding-top: 100%;
   border-style: solid;
   border-width: 1px;
+
   &.first {
     border-color: $neonMagenta;
   }
@@ -54,8 +55,16 @@ $font-family: 'Roboto-Mono';
     border-color: $neonBlue;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   white-space: nowrap !important;
   text-align: center !important;
+}
+
+.playing {
+
 }
 
 .helper {
@@ -73,6 +82,10 @@ $font-family: 'Roboto-Mono';
   right: 0;
   left: 0;
 }
+
+
+
+
 
 
 
