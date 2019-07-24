@@ -7,7 +7,6 @@ $(document).ready(function() {
     playerDiv.addEventListener('click', () => {
       Player.stop()
       if (!playerDiv.classList.contains('playing')) {
-        Player.stop()
         play(`sample${index}.mid`)
         playerDivs.forEach((p) => {
           if (p.classList.contains('playing') && playerDiv !== p) {
