@@ -1,30 +1,35 @@
 $(document).ready(function() {
   let players = Array.from(document.getElementsByClassName('player'))
 
-  players.forEach((player) => {
+  players.forEach((player, index) => {
     player.addEventListener('click', function() {
-      let file = fetchMidiFile('mario.mid')
-      if (file) {
-        console.log('Received file')
-        console.log(file)
-      } else {
-        console.log('Did not receive file.')
-      }
+      play(`sample${index}.mid`)
     })
   })
 })
 
-function fetchMidiFile(fileName) {
-  const http = new XMLHttpRequest()
-  const url = "https://s3.us-south.cloud-object-storage.appdomain.cloud/music-gen-dev/" + fileName
-  http.open('GET', url) 
-  http.send()
-
-  http.onreadystatechange = (e) => {
-    if (this.readyState == 4 && this.status == 200) {
-      return http.response.body  
-    } 
-  }
+async function fetchMidiFile(fileName) {
+  let blob = fetch('/samples/' + fileName).then(r => r.blob());
+  return blob
 }
 
-// https://s3.us-south.cloud-object-storage.appdomain.cloud/music-gen-dev/<fileName>
+function play(songName) {
+  let ac = new AudioContext()
+  let file = null
+  fetchMidiFile(songName).then(f => {
+    file = f
+    let reader = new FileReader()
+
+    Soundfont.instrument(ac, 'acoustic_grand_piano').then((instrument) => {
+      reader.readAsArrayBuffer(file)
+      reader.addEventListener('load', () => {
+        Player = new MidiPlayer.Player((event) => {
+          instrument.play(event.noteName, ac.currentTime, { gain: event.velocity / 100 })
+        })
+
+        Player.loadArrayBuffer(reader.result)
+        Player.play()
+      })
+    })
+  })
+}
