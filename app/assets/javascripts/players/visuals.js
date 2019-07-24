@@ -15,6 +15,9 @@ $(document).ready(function() {
 }) 
 
 function togglePlayPause(element) {
+  let colors = ['purple', 'yellow', 'green', 'teal']
+  element.classList.toggle('inverted')
+  element.classList.toggle('black')
   element.classList.toggle('play')
   element.classList.toggle('pause')
 }

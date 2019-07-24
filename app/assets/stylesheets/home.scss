@@ -64,7 +64,18 @@ $font-family: 'Roboto-Mono';
 }
 
 .playing {
-
+  &.first {
+    background-color: $neonMagenta;
+  }
+  &.second {
+    background-color: $neonYellow;
+  }
+  &.third {
+    background-color: $neonGreen;
+  }
+  &.fourth {
+    background-color: $neonBlue;
+  }
 }
 
 .helper {
