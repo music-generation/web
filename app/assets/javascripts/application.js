@@ -11,10 +11,15 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
+
 //= require midiplayer.min
 //= require soundfont-player.min
+//= require players/media
+//= require players/visuals
 
