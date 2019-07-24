@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: music_dev
-  # username: music-generation-web
-  # password: <%= ENV['MUSIC-GENERATION-WEB_DATABASE_PASSWORD'] %>
+  host: <%= ENV["DATABASE_IP"] %>
+  database: hackrdot_production
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>

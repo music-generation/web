@@ -18,7 +18,6 @@ function fetchMidiFile(fileName) {
   const http = new XMLHttpRequest()
   const url = "https://s3.us-south.cloud-object-storage.appdomain.cloud/music-gen-dev/" + fileName
   http.open('GET', url) 
-  http.setRequestHeader('origin', 'google.com', false)
   http.send()
 
   http.onreadystatechange = (e) => {
