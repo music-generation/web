@@ -1,18 +1,19 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$neonBlue: #7debe9;
-$neonGreen: #94e94c;
-$neonYellow: #fce64d;
-$neonMagenta: #dc3ef6;
-
 @font-face {
   font-family: 'Roboto-Mono';
   src: asset-url('RobotoMono-Regular.ttf') format("trueType");
 }
 
-$font-family: 'Roboto-Mono';
 @import "semantic-ui";
+
+$neonBlue: #7debe9;
+$neonGreen: #94e94c;
+$neonYellow: #fce64d;
+$neonMagenta: #dc3ef6;
+
+$font-family: 'Roboto-Mono';
 
 .segment {
   height: 100%;

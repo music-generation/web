@@ -18,8 +18,5 @@
 //= require_tree .
 
 
-//= require midiplayer.min
-//= require soundfont-player.min
-//= require players/media
-//= require players/visuals
-
+//= require_directory ./external
+//= require_directory ./players
