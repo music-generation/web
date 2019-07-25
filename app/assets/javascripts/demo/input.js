@@ -10,18 +10,19 @@ $(document).ready(function() {
 
   setupNoteButtons(noteButtons)
 
-  // saveButton.addEventListener('click', function() {
-  //   let uri = generateMidiURI(file)
-  //   sendRequestToCreateFile(uri)
+  saveButton.addEventListener('click', function() {
+    let uri = generateMidiURI(file)
+    sendRequestToCreateFile(uri)
 
-  //   // wait for generated midi file
-  //   // receive generated midi file
-  //   // save the file
-  // }) 
+    // wait for generated midi file
+    // receive generated midi file
+    // save the file
+  }) 
 
 })
 
 function setupNoteButtons(buttons) {
+  let 
   buttons.forEach(button => {
     button.addEventListener('click', function() {
       let note = button.name
@@ -45,4 +46,4 @@ function sendRequestToCreateFile(midiUri) {
   http.send(JSON.stringify({
     uri: midiUri
   }))
-}
+} 

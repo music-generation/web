@@ -38,8 +38,10 @@ $font-family: 'Roboto-Mono';
   position: absolute;
   left:0;
   right:0;
-  margin-left:auto;
-  margin-right:auto;
+}
+
+.bottom-helper {
+  position: relative;
 }
 
 .player {
@@ -100,9 +102,18 @@ $font-family: 'Roboto-Mono';
   left: 0;
 }
 
+button {
+  border-radius: 0 !important;
+}
+
+.bottom-helper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
 .note-button {
   height: 25em;
-  border-radius: 0 !important;
   border-style: solid !important;
   border-width: 1px !important;
   border-color: black !important;
@@ -114,10 +125,3 @@ $font-family: 'Roboto-Mono';
     background-color: black !important;
   }
 }
-
-
-
-
-
-
-

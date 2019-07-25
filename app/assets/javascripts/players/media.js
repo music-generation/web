@@ -32,7 +32,7 @@ function play(songName) {
     file = f
     let reader = new FileReader()
 
-    Soundfont.instrument(ac, 'clavinet').then((instrument) => {
+    Soundfont.instrument(ac, 'acoustic_grand_piano').then((instrument) => {
       reader.readAsArrayBuffer(file)
       reader.addEventListener('load', () => {
         let localPlayer = new MidiPlayer.Player((event) => {
