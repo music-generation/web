@@ -17,6 +17,5 @@
 //= require turbolinks
 //= require_tree .
 
-
 //= require_directory ./external
 //= require_directory ./players
