@@ -10,14 +10,14 @@ $(document).ready(function() {
 
   setupNoteButtons(noteButtons)
 
-  saveButton.addEventListener('click', function() {
-    let uri = generateMidiURI(file)
-    sendRequestToCreateFile(uri)
-    // send uri to api endpoint
-    // wait for generated midi file
-    // receive generated midi file
-    // save the file
-  })
+  // saveButton.addEventListener('click', function() {
+  //   let uri = generateMidiURI(file)
+  //   sendRequestToCreateFile(uri)
+
+  //   // wait for generated midi file
+  //   // receive generated midi file
+  //   // save the file
+  // }) 
 
 })
 

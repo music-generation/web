@@ -1,12 +1,11 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 @font-face {
   font-family: 'Roboto-Mono';
   src: asset-url('RobotoMono-Regular.ttf') format("trueType");
 }
-
-@import "semantic-ui";
 
 $neonBlue: #7debe9;
 $neonGreen: #94e94c;
@@ -14,6 +13,7 @@ $neonYellow: #fce64d;
 $neonMagenta: #dc3ef6;
 
 $font-family: 'Roboto-Mono';
+@import "semantic-ui";
 
 .segment {
   height: 100%;
@@ -22,6 +22,11 @@ $font-family: 'Roboto-Mono';
 .main-header {
   font-size: 4em !important;
   margin-top: 8% !important;
+}
+
+.highlighted {
+  background-color: $neonGreen;
+  color: black !important;
 }
 
 .samples-text {
@@ -95,7 +100,20 @@ $font-family: 'Roboto-Mono';
   left: 0;
 }
 
-
+.note-button {
+  height: 25em;
+  border-radius: 0 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: black !important;
+  background-color: white !important;
+  &:hover {
+    background-color: #dcdcdc !important;
+  }
+  &:active {
+    background-color: black !important;
+  }
+}
 
 
 
