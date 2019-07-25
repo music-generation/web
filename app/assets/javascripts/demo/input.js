@@ -22,7 +22,6 @@ $(document).ready(function() {
 })
 
 function setupNoteButtons(buttons) {
-  let 
   buttons.forEach(button => {
     button.addEventListener('click', function() {
       let note = button.name
@@ -47,3 +46,4 @@ function sendRequestToCreateFile(midiUri) {
     uri: midiUri
   }))
 } 
+

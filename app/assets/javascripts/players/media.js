@@ -26,7 +26,7 @@ async function fetchMidiFile(fileName) {
 }
 
 function play(songName) {
-  let ac = new AudioContext()
+  let ac = new AudioContext() || new webkitAudioContext()
   let file = null
   fetchMidiFile(songName).then(f => {
     file = f
