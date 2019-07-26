@@ -28,7 +28,6 @@ function generateMidiURI(input) {
   const bytes = input.toBytes()
   const b64 = btoa(bytes)
   const uri = 'data:audio/midi;base64,' + b64
-  console.log(uri)
   return uri
 }
 
