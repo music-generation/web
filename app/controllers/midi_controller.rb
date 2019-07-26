@@ -1,13 +1,13 @@
 class MidiController < ApplicationController
   include MidiHelper
-  require 'securerandom'
 
   skip_before_action :verify_authenticity_token
 
   def handle
-    # file_name = SecureRandom.hex
     file_name = rand(100)
     uri = midi_params[:uri]
+    file_name = midi_params[:name]
+    puts file_name
     file = convert_midi_uri_to_file(uri, file_name)
     # send file to ml service
     # receive generated url for midi
@@ -19,7 +19,7 @@ class MidiController < ApplicationController
   private 
 
     def midi_params
-      params.permit(:uri)
+      params.permit(:uri, :name)
     end
 
 end

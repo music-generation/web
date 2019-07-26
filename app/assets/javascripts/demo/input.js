@@ -1,4 +1,5 @@
 let file, track = null
+let fileName = null
 
 $(document).ready(function() {
   file = new Midi.File()
@@ -19,8 +20,10 @@ $(document).ready(function() {
 
     notes.forEach(note => track.addChord(0, note, 128))
 
+    fileName = generateName()
+    console.log(`name: ${fileName}`)
     let uri = generateMidiURI(file)
-    sendRequestToCreateFile(uri)
+    sendRequestToCreateFile(uri, fileName)
 
     // wait for generated midi file
     // receive generated midi file
@@ -36,12 +39,13 @@ function generateMidiURI(input) {
   return uri
 }
 
-function sendRequestToCreateFile(midiUri) {
+function sendRequestToCreateFile(midiUri, fileName) {
   let http = new XMLHttpRequest()
   http.open('POST', '/api', true)
   http.setRequestHeader('Content-Type', 'application/json');
   http.send(JSON.stringify({
-    uri: midiUri
+    uri: midiUri,
+    name: fileName
   }))
 } 
 
@@ -60,8 +64,9 @@ function getSelectedNotes(buttonList) {
   return notesAll
 }
 
-
-
+function generateName() {
+  return Math.random().toString(36).substr(2)
+}
 
 
 
