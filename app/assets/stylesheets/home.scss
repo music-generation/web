@@ -119,15 +119,11 @@ button {
   border-color: black !important;
   background-color: white !important;
   &:hover {
-    background-color: #dcdcdc !important;
+    background-color: black !important;
   }
   &:active {
     background-color: black !important;
   }
-}
-
-.column {
-  padding: 0 !important;
 }
 
 .selected {

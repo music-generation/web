@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 })
 
-async function fetchMidiFile(fileName) {
+function fetchMidiFile(fileName) {
   let blob = fetch('/samples/' + fileName).then(r => r.blob());
   return blob
 }
