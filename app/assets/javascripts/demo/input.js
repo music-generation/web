@@ -7,6 +7,7 @@ $(document).ready(function() {
   file.addTrack(track)
 
   let noteButtons = Array.from(document.getElementsByClassName('note-button'))
+  
   let saveButton = document.querySelector('.save')
 
   let loader = document.querySelector('.loader')
@@ -16,18 +17,16 @@ $(document).ready(function() {
     loader.classList.remove('disabled')
     saveButton.classList.toggle('disabled')
     placeholderText.style.visibility = "hidden"
+
     let notes = getSelectedNotes(noteButtons)
 
-    notes.forEach(note => track.addChord(0, note, 128))
+    notes.forEach(note => track.addChord(0, note, 64))
 
     fileName = generateName()
-    console.log(`name: ${fileName}`)
+    console.log(`name: ${fileName}.mid`)
+
     let uri = generateMidiURI(file)
     sendRequestToCreateFile(uri, fileName)
-
-    // wait for generated midi file
-    // receive generated midi file
-    // save the file
   }) 
 
 })
@@ -67,10 +66,4 @@ function getSelectedNotes(buttonList) {
 function generateName() {
   return Math.random().toString(36).substr(2)
 }
-
-
-
-
-
-
 
