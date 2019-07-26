@@ -18,7 +18,15 @@
       </div>
       <div class="eight wide column">   
         <div class="bottom-helper">
-          <button class="ui fluid huge green save button bottom">
+          <div class="ui attached segment demo-player-segment">
+            <div class="ui active inverted dimmer">
+              <div class="placeholder-text">
+                Hit the GO button to start.
+              </div>
+              <div class="ui text disabled loader">Loading</div>
+            </div>
+          </div>
+          <button class="ui attached fluid huge green save button" tabindex="0">
             GO
           </button>  
         </div>
@@ -28,6 +36,7 @@
 
     <br><br>
     <div class="ui grid notes-grid">
+      <!-- note buttons -->
       <div class="row">
         <div class="two wide column note-column">
           <div class="ui fluid vertical buttons">

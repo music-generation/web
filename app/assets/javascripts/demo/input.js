@@ -8,8 +8,13 @@ $(document).ready(function() {
   let noteButtons = Array.from(document.getElementsByClassName('note-button'))
   let saveButton = document.querySelector('.save')
 
-  saveButton.addEventListener('click', function() {
+  let loader = document.querySelector('.loader')
+  let placeholderText = document.querySelector('.placeholder-text')
 
+  saveButton.addEventListener('click', function() {
+    loader.classList.remove('disabled')
+    saveButton.classList.toggle('disabled')
+    placeholderText.style.visibility = "hidden"
     let notes = getSelectedNotes(noteButtons)
 
     notes.forEach(note => track.addChord(0, note, 128))
