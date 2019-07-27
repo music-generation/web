@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generate Music With AI</title>
+
+    <!-- Semantic UI -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}"></script>
+
+    <script src="{{ url_for('static', filename='midiplayer.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jsmidgen.js') }}"></script>
+    <script src="{{ url_for('static', filename='soundfont-player.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='landingVisuals.js') }}"></script>
+    <script src="{{ url_for('static', filename='landingMedia.js') }}"></script>
+    <script src="{{ url_for('static', filename='demoInput.js') }}"></script>
+    <script src="{{ url_for('static', filename='demoNotes.js') }}"></script>
+
+  </head>
+
+  <body>
+
+    <!-- START: LANDING PAGE -->
+    <div class="ui inverted vertical segment center aligned">
+      <h1 class="ui inverted header main-header">
+        Generate Music <br> With AI
+      </h1>
+
+      <div class="ui container">
+        <h1 class="ui grey inverted header samples-text">
+          Try out the samples.
+        </h1>
+
+        <br><br>
+        <div class="ui grid">
+          <div class="four wide column">
+            <div class="player first">
+              <span class="helper"></span>
+              <i href="#" class="huge inverted purple play link icon play-icon"></i>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="player second">
+              <span class="helper"></span>
+              <i href="#" class="huge inverted yellow play link icon play-icon"></i>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="player third">
+              <span class="helper"></span>
+              <i href="#" class="huge inverted green play link icon play-icon"></i>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="player fourth">
+              <span class="helper"></span>
+              <i href="#" class="huge inverted teal play link icon play-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="ui header bottom highlighted">
+        <p><i class="angle down icon"></i> Scroll down to try out the demo! <i class="angle down icon"></i></p>
+      </h1>
+    </div>
+    <!-- END: LANDING PAGE -->
+
+    <!-- START: DEMO PAGE -->
+    <div class="ui vertical segment">
+
+      <div class="ui container">
+        <div class="ui grid">
+          <div class="eight wide column">
+            <h1 class="ui header main-header">
+              Generate your own music!
+            </h1>
+            <h2>
+              1. Enter some notes below.
+            </h2>
+            <h2>
+              2. Hit the GO button.
+            </h2>
+            <h2>
+              3. Enjoy the music our model generated for you!
+            </h2>
+          </div>
+          <div class="eight wide column">   
+            <div class="bottom-helper">
+              <div class="ui attached segment demo-player-segment">
+                <div class="ui active inverted dimmer">
+                  <div class="placeholder-text">
+                    Hit the GO button to start.
+                  </div>
+                  <div class="ui text disabled loader">Loading</div>
+                </div>
+              </div>
+              <button class="ui attached fluid huge green save button" tabindex="0">
+                GO
+              </button>  
+            </div>
+            
+          </div>
+        </div>
+
+        <br><br>
+        <div class="ui grid notes-grid">
+          <!-- note buttons -->
+          <div class="row">
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+            <div class="two wide column note-column">
+              <div class="ui fluid vertical buttons">
+                <button class="ui button note-button" name="c4">C</button>
+                <button class="ui button note-button" name="d4">D</button>
+                <button class="ui button note-button" name="e4">E</button>
+                <button class="ui button note-button" name="f4">F</button>
+                <button class="ui button note-button" name="g4">G</button>
+                <button class="ui button note-button" name="a4">A</button>
+                <button class="ui button note-button" name="b4">B</button>
+                <button class="ui button note-button" name="c5">C</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>    
+
+  </body>
+</html>

@@ -1,0 +1,144 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// @font-face {
+//   font-family: 'Roboto-Mono';
+//   src: asset-url('RobotoMono-Regular.ttf') format("trueType");
+// }
+
+$neonBlue: #7debe9;
+$neonGreen: #94e94c;
+$neonYellow: #fce64d;
+$neonMagenta: #dc3ef6;
+
+// $font-family: 'Roboto-Mono';
+
+.segment {
+  height: 100%;
+}
+
+.main-header {
+  font-size: 4em !important;
+  margin-top: 8% !important;
+}
+
+.highlighted {
+  background-color: $neonGreen;
+  color: black !important;
+}
+
+.samples-text {
+  margin-top: 10% !important;
+}
+
+.bottom { 
+  bottom: 2%;
+  position: absolute;
+  left:0;
+  right:0;
+}
+
+.bottom-helper {
+  position: relative;
+}
+
+.player {
+  width: 100%;
+  padding-top: 100%;
+  border-style: solid;
+  border-width: 1px;
+
+  &.first {
+    border-color: $neonMagenta;
+  }
+  &.second {
+    border-color: $neonYellow;
+  }
+  &.third {
+    border-color: $neonGreen;
+  }
+  &.fourth {
+    border-color: $neonBlue;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  white-space: nowrap !important;
+  text-align: center !important;
+}
+
+.playing {
+  &.first {
+    background-color: $neonMagenta;
+  }
+  &.second {
+    background-color: $neonYellow;
+  }
+  &.third {
+    background-color: $neonGreen;
+  }
+  &.fourth {
+    background-color: $neonBlue;
+  }
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.play-icon {
+  margin: 0 auto !important;
+  vertical-align: middle !important;
+  position: absolute;
+  top: 40%;
+  bottom: 40%;
+  right: 0;
+  left: 0;
+}
+
+button {
+  border-radius: 0 !important;
+}
+
+.bottom-helper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.note-button {
+  height: 3em ;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: black !important;
+  background-color: white !important;
+  &:hover {
+    background-color: black !important;
+  }
+  &:active {
+    background-color: black !important;
+  }
+}
+
+.selected {
+  background-color: black !important; 
+}
+
+.demo-player-segment {
+  margin-top: 10% !important;
+  height: 75% !important;
+}
+
+
+
+
+
+
+
+
+
