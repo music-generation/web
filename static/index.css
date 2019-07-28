@@ -85,16 +85,45 @@ button {
   border-color: black !important;
   background-color: white !important;
 }
-.note-button:hover {
-  background-color: black !important;
+.note-button:hover:not() {
+  background-color: #eeeeee !important;
 }
-.note-button:active {
-  background-color: black !important;
-}
-.selected {
-  background-color: black !important;
-}
+
 .demo-player-segment {
   margin-top: 10% !important;
   height: 75% !important;
 }
+
+.selected.n1 {
+  background-color: #111111 !important;
+}
+
+.selected.n2 {
+  background-color: #333333 !important;
+}
+
+.selected.n3 {
+  background-color: #555555 !important;
+}
+
+.selected.n4 {
+  background-color: #777777 !important;
+}
+
+.selected.n5 {
+  background-color: #999999 !important;
+}
+
+.selected.n6 {
+  background-color: #aaaaaa !important;
+}
+
+.selected.n7 {
+  background-color: #cccccc !important;
+}
+
+.selected.n8 {
+  background-color: #eeeeee !important;
+}
+
+
