@@ -6,10 +6,6 @@ from flask_scss import Scss
 import midi_helper
 import json
 
-# TODO: midi file generation from uri
-# TODO: saving midi file at accessible endpoint
-# TODO: ??
-
 app = Flask(__name__)
 Scss(app, static_dir = 'static', asset_dir = 'assets')
 
