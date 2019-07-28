@@ -24,4 +24,5 @@ def save_user_generated_midi():
   file_name = json['name']
   encoded_midi = json['uri']
   midi_helper.decode_midi(encoded_midi, file_name)
-  return render_template('index.html')
+  midi_helper.generate_melody(file_name)
+  return ('', 204)

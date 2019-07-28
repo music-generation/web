@@ -17,7 +17,7 @@ $(document).ready(function() {
   let demoInputPlayer = document.querySelector('.demo-input-player')
 
   saveButton.addEventListener('click', function() {
-    loader.classList.remove('disabled')
+    loader.classList.toggle('disabled')
     saveButton.classList.toggle('disabled')
     placeholderText.style.visibility = "hidden"
 
@@ -30,10 +30,9 @@ $(document).ready(function() {
 
     let midiEncoding = generateMidiEncoding(file)
 
-    // takes time
-    sendRequestToCreateFile(midiEncoding, fileName)
+    generateMelodyFromMidi(midiEncoding, fileName)
 
-    loader.classList.add('disabled')
+    loader.classList.toggle('disabled')
     demoGeneratedPlayer.style.visibility = 'visible'
     demoInputPlayer.style.visibility = 'visible'
 
@@ -48,7 +47,7 @@ $(document).ready(function() {
       // play(`${fileName}.mid`)
       play('sample0.mid')
     })
-    // show play buttons
+
   }) 
 
 })
@@ -60,10 +59,11 @@ function generateMidiEncoding(input) {
   return b64
 }
 
-function sendRequestToCreateFile(midiUri, fileName) {
+function generateMelodyFromMidi(midiUri, fileName) {
   let http = new XMLHttpRequest()
-  http.open('POST', '/generate', true)
+  http.open('POST', '/generate', false)
   http.setRequestHeader('Content-Type', 'application/json');
+  http.timeout = 30 * 1000;
   http.send(JSON.stringify({
     uri: midiUri,
     name: fileName
