@@ -5,6 +5,7 @@ from flask_scss import Scss
 
 import midi_helper
 import json
+from time import sleep
 
 app = Flask(__name__)
 Scss(app, static_dir = 'static', asset_dir = 'assets')
@@ -13,9 +14,9 @@ Scss(app, static_dir = 'static', asset_dir = 'assets')
 def index():
   return render_template('index.html') 
 
-@app.route('/samples/<path:path>')
+@app.route('/midis/<path:path>')
 def serve_sample_midi(path):
-  return send_from_directory('samples', path)
+  return send_from_directory('midis', path)
   
 @app.route('/generate', methods=['POST'])
 def save_user_generated_midi():

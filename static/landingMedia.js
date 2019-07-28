@@ -21,7 +21,7 @@ $(document).ready(function() {
 })
   
 function fetchMidiFile(fileName) {
-  let blob = fetch('/samples/' + fileName).then(r => r.blob());
+  let blob = fetch('/midis/' + fileName).then(r => r.blob());
   return blob
 }
 

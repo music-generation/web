@@ -94,21 +94,26 @@
             <div class="bottom-helper">
               <div class="ui attached segment demo-player-segment">
                 <div class="ui active inverted dimmer">
-                  <div hidden class="placeholder-text">
+
+                  <!-- STEP 1 -->
+                  <div class="placeholder-text">
                     Hit the GO button to start.
                   </div>
+
+                  <!-- STEP 2 -->
                   <div class="ui text disabled loader">Loading</div>
-                  <div class="ui grid">
-                    <button class="ui huge green fluid button labeled icon">
-                      <i class="play icon"></i>
-                      Generated melody
-                    </button>
-                    <br><br><br>
-                    <button class="ui fluid button labeled icon">
-                      <i class="play icon"></i>
-                      Your melody
-                    </button>
-                  </div>
+
+                  <!-- STEP 3 -->
+                  <button class="ui huge green fluid button labeled icon demo-generated-player" style="visibility: hidden !important;">
+                    <i class="play icon"></i>
+                    Generated melody
+                  </button>
+                  <br><br><br>
+                  <button class="ui fluid button labeled icon demo-input-player" style="visibility: hidden !important;">
+                    <i class="play icon"></i>
+                    Your melody
+                  </button>
+
                 </div>
               </div>
               <button class="ui attached fluid huge green save button" tabindex="0">

@@ -13,6 +13,9 @@ $(document).ready(function() {
   let loader = document.querySelector('.loader')
   let placeholderText = document.querySelector('.placeholder-text')
 
+  let demoGeneratedPlayer = document.querySelector('.demo-generated-player')
+  let demoInputPlayer = document.querySelector('.demo-input-player')
+
   saveButton.addEventListener('click', function() {
     loader.classList.remove('disabled')
     saveButton.classList.toggle('disabled')
@@ -26,7 +29,26 @@ $(document).ready(function() {
     console.log(`name: ${fileName}.mid`)
 
     let midiEncoding = generateMidiEncoding(file)
+
+    // takes time
     sendRequestToCreateFile(midiEncoding, fileName)
+
+    loader.classList.add('disabled')
+    demoGeneratedPlayer.style.visibility = 'visible'
+    demoInputPlayer.style.visibility = 'visible'
+
+    demoGeneratedPlayer.addEventListener('click', function() {
+      Player.stop()
+      // play(`out_${fileName}.mid`)
+      play('sample1.mid')
+    })
+
+    demoInputPlayer.addEventListener('click', function() {
+      Player.stop()
+      // play(`${fileName}.mid`)
+      play('sample0.mid')
+    })
+    // show play buttons
   }) 
 
 })
