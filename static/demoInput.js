@@ -9,6 +9,9 @@ let loaderStrings = [
 ]
 
 $(document).ready(function() {
+
+  $('.demo-segment').dimmer('show')
+
   file = new Midi.File()
   track = new Midi.Track()
   file.addTrack(track)
