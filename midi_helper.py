@@ -12,4 +12,4 @@ def decode_midi(encoded_midi, file_name):
 
 def generate_melody(file_name):
   # generate melody
-  sleep(5)
+  sleep(15)

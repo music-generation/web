@@ -1,6 +1,13 @@
 let file, track = null
 let fileName = null
 
+let loaderStrings = [
+  'Reading the notes you entered...',
+  'Trying to reach our composer...',
+  'Reading sheet music...',
+  'Contemplating life...'
+]
+
 $(document).ready(function() {
   file = new Midi.File()
   track = new Midi.Track()
@@ -21,6 +28,11 @@ $(document).ready(function() {
     saveButton.classList.toggle('disabled')
     placeholderText.style.visibility = "hidden"
 
+    setInterval(function() {
+      let index = getRandomInt(0, loaderStrings.length)
+      loader.textContent = loaderStrings[index]
+    }, 2000)
+
     let notes = getSelectedNotes(noteButtons)
 
     notes.forEach(note => track.addChord(0, note, 64))
@@ -29,8 +41,6 @@ $(document).ready(function() {
     console.log(`name: ${fileName}.mid`)
 
     let midiEncoding = generateMidiEncoding(file)
-
-    // music generation request
 
     $.ajax({
       type: 'POST',
@@ -59,7 +69,6 @@ $(document).ready(function() {
       }
     })
 
-    // generateMelodyFromMidi(midiEncoding, fileName)
   }) 
 
 })
@@ -70,16 +79,6 @@ function generateMidiEncoding(input) {
   console.log(b64)
   return b64
 }
-
-function generateMelodyFromMidi(midiUri, fileName) {
-  let http = new XMLHttpRequest()
-  http.open('POST', '/generate', false)
-  http.setRequestHeader('Content-Type', 'application/json');
-  http.send(JSON.stringify({
-    uri: midiUri,
-    name: fileName
-  }))
-} 
 
 function isSelected(button) {
   return button.classList.contains('selected')
@@ -100,3 +99,8 @@ function generateName() {
   return Math.random().toString(36).substr(2)
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}

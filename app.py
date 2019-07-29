@@ -5,7 +5,6 @@ from flask_scss import Scss
 
 import midi_helper
 import json
-from time import sleep
 
 app = Flask(__name__)
 Scss(app, static_dir = 'static', asset_dir = 'assets')
