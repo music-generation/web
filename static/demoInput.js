@@ -30,24 +30,36 @@ $(document).ready(function() {
 
     let midiEncoding = generateMidiEncoding(file)
 
-    generateMelodyFromMidi(midiEncoding, fileName)
+    // music generation request
 
-    loader.classList.toggle('disabled')
-    demoGeneratedPlayer.style.visibility = 'visible'
-    demoInputPlayer.style.visibility = 'visible'
+    $.ajax({
+      type: 'POST',
+      url: '/generate',
+      data: JSON.stringify({
+        uri: midiEncoding,
+        name: fileName
+      }),
+      dataType: 'json',
+      success: function(result) {
+        loader.classList.toggle('disabled')
+        demoGeneratedPlayer.style.visibility = 'visible'
+        demoInputPlayer.style.visibility = 'visible'
 
-    demoGeneratedPlayer.addEventListener('click', function() {
-      Player.stop()
-      // play(`out_${fileName}.mid`)
-      play('sample1.mid')
+        demoGeneratedPlayer.addEventListener('click', function() {
+          Player.stop()
+          // play(`out_${fileName}.mid`)
+          play('sample1.mid')
+        })
+
+        demoInputPlayer.addEventListener('click', function() {
+          Player.stop()
+          // play(`${fileName}.mid`)
+          play('sample0.mid')
+        })
+      }
     })
 
-    demoInputPlayer.addEventListener('click', function() {
-      Player.stop()
-      // play(`${fileName}.mid`)
-      play('sample0.mid')
-    })
-
+    // generateMelodyFromMidi(midiEncoding, fileName)
   }) 
 
 })
@@ -63,7 +75,6 @@ function generateMelodyFromMidi(midiUri, fileName) {
   let http = new XMLHttpRequest()
   http.open('POST', '/generate', false)
   http.setRequestHeader('Content-Type', 'application/json');
-  http.timeout = 30 * 1000;
   http.send(JSON.stringify({
     uri: midiUri,
     name: fileName
