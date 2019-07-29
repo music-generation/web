@@ -54,6 +54,7 @@ $(document).ready(function() {
         loader.classList.toggle('disabled')
         demoGeneratedPlayer.style.visibility = 'visible'
         demoInputPlayer.style.visibility = 'visible'
+        saveButton.classList.toggle('disabled')
 
         demoGeneratedPlayer.addEventListener('click', function() {
           Player.stop()
